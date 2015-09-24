@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hello Name Application</string>
+
+    <string name="name_question">Please enter your name.</string>
+    <string name="name_string"></string>
+    <string name="action_settings">Settings</string>
+</resources>
