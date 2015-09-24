@@ -18,9 +18,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Button button = (Button) this.findViewById(R.id.changeButton);
         button.setOnClickListener(this);
-
-        EditText editText = (EditText) this.findViewById(R.id.editText);
-        editText.setOnClickListener(this);
     }
 
     @Override
@@ -45,9 +42,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
+    private EditText editText;
+    private TextView textView;
+
     @Override
     public void onClick(View v) {
-        TextView textView = (TextView) findViewById(R.id.textView);
+        editText = (EditText) findViewById(R.id.editText);
+        textView = (TextView) findViewById(R.id.textView);
+
         textView.setText("Hi" + editText.getText());
+        editText.setText("");
     }
 }
