@@ -8,8 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +18,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         Button button = (Button) this.findViewById(R.id.changeButton);
-        button.setOnClickListener(this);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                TextView textView = (TextView) findViewById(R.id.textView);
+
+                textView.setText("Hi " + editText.getText() + "!");
+                editText.setText("");
+            }
+        });
     }
 
     @Override
@@ -40,17 +50,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    private EditText editText;
-    private TextView textView;
-
-    @Override
-    public void onClick(View v) {
-        editText = (EditText) findViewById(R.id.editText);
-        textView = (TextView) findViewById(R.id.textView);
-
-        textView.setText("Hi" + editText.getText());
-        editText.setText("");
     }
 }
