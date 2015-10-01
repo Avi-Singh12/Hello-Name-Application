@@ -1,5 +1,8 @@
 package com.example.asingh.hellonameapplication;
 
+import android.content.SharedPreferences;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -16,6 +19,8 @@ public class MainActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", 0);
 
         Button button = (Button) this.findViewById(R.id.changeButton);
         button.setOnClickListener(new View.OnClickListener() {
