@@ -1,5 +1,6 @@
 package com.example.asingh.hellonameapplication;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SharedPreferences mSettings = getActivity().getSharedPreferences("Settings", 0);
+        final SharedPreferences mSettings = getSharedPreferences("NameFile", Context.MODE_PRIVATE);
 
         Button button = (Button) this.findViewById(R.id.changeButton);
         button.setOnClickListener(new View.OnClickListener() {
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity{
             public void onClick(View v) {
                 EditText editText = (EditText) findViewById(R.id.editText);
                 TextView textView = (TextView) findViewById(R.id.textView);
+                SharedPreferences.Editor editor = mSettings.edit();
 
                 textView.setText("Hi " + editText.getText() + "!");
                 editText.setText("");
